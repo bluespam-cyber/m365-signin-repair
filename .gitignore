@@ -1,0 +1,6 @@
+# local runs and test labs
+M365SignInRepair/
+*.log
+push-to-github.ps1
+Thumbs.db
+.DS_Store

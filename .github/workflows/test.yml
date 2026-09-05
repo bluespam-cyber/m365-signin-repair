@@ -1,0 +1,20 @@
+name: Offline test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shell: [pwsh, powershell]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run the offline test (${{ matrix.shell }})
+        shell: ${{ matrix.shell }}
+        run: |
+          ./scripts/Test-RepairM365SignIn.ps1
